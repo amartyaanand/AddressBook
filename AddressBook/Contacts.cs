@@ -14,5 +14,12 @@ namespace AddressBook
         public int Zip { get; set; }
         public long PhoneNumber { get; set; }
         public string Email { get; set; }
+        public override bool Equals(object obj)
+        {
+            Contacts contact = obj as Contacts;
+            if (obj == null)
+                return false;
+            return this.FirstName.Equals(contact.FirstName) && this.LastName.Equals(contact.LastName);
+        }
     }
 }

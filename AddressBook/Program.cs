@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AddressBook
 {
@@ -7,7 +8,7 @@ namespace AddressBook
         public static Dictionary<string, AddressBook> AddressBookMap = new Dictionary<string, AddressBook>();
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Address Book Program.");
+            Console.WriteLine("Welcome To Address Book Program");
             int choice;
             string name;
             do
@@ -31,7 +32,7 @@ namespace AddressBook
             } while (choice != 3);
         }
 
-        public static void SetContactDetails(Contact contact)
+        public static void SetContactDetails(Contacts contact)
         {
             Console.WriteLine("Enter the First Name");
             contact.FirstName = Console.ReadLine();
@@ -61,7 +62,7 @@ namespace AddressBook
                 switch (choice)
                 {
                     case 1:
-                        Contact contact = new Contact();
+                        Contacts contact = new Contacts();
                         SetContactDetails(contact);
                         addressBook.AddContact(contact);
                         break;
@@ -76,7 +77,7 @@ namespace AddressBook
                         }
                         else
                         {
-                            Contact contact2 = new Contact();
+                            Contacts contact2 = new Contacts();
                             SetContactDetails(contact2);
                             addressBook.ContactList[index] = contact2;
                             Console.WriteLine("Contact Updated Successfully");

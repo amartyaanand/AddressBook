@@ -1,32 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AddressBook
 {
     class AddressBook
     {
-        public List<Contact> ContactList;
+        public List<Contacts> ContactList;
         public AddressBook()
         {
-            this.ContactList = new List<Contact>();
+            this.ContactList = new List<Contacts>();
         }
-        //Add Contact to Address Book
-        public void AddContact(Contact contactObj)
+        public void AddContact(Contacts contactObj)
         {
-            this.ContactList.Add(contactObj);
+            if (this.ContactList.Find(e => e.Equals(contactObj)) != null)
+                Console.WriteLine("The Contact Already Exists! Try Again.");
+            else
+                this.ContactList.Add(contactObj);
         }
-        //Find Contact Object Index By Mobile Number
         public int FindByPhoneNum(long phoneNumber)
         {
             return this.ContactList.FindIndex(contact => contact.PhoneNumber.Equals(phoneNumber));
         }
-        //Find Contact Object Index By FirstName
         public int FindByFirstName(string firstName)
         {
             return this.ContactList.FindIndex(contact => contact.FirstName.Equals(firstName));
         }
-        //Delete a Give Contact By Index
         public void DeleteContact(int index)
         {
             this.ContactList.RemoveAt(index);
